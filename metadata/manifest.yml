@@ -8,7 +8,7 @@ License-Url: http://www.apache.org/licenses/LICENSE-2.0.html
 Vendor: Red Hat
 Cartridge-Version: 0.0.1
 Cartridge-Vendor: apache
-Source-Url: http://github.com/openshift/origin-community-cartridges/tree/master/openshift-origin-cartridge-activemq
+Source-Url: http://github.com/bdecoste/openshift-origin-cartridge-activemq
 Categories:
   - service
   - web_framework
