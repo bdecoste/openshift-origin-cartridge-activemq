@@ -1,0 +1,13 @@
+#!/bin/bash -eux
+
+case "$1" in
+  -v|--version)
+    version="$2"
+esac
+
+cp -r ${OPENSHIFT_ACTIVEMQ_DIR}/versions/${version}/template/* ${OPENSHIFT_ACTIVEMQ_DIR}/template
+cp -r ${OPENSHIFT_ACTIVEMQ_DIR}/versions/${version}/template/.openshift ${OPENSHIFT_ACTIVEMQ_DIR}/template
+cp ${OPENSHIFT_ACTIVEMQ_DIR}/apache-activemq/conf/* ${OPENSHIFT_ACTIVEMQ_DIR}/template/.openshift/config
+
+echo "$version" > "$OPENSHIFT_ACTIVEMQ_DIR/env/OPENSHIFT_ACTIVEMQ_VERSION"
+

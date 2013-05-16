@@ -1,0 +1,11 @@
+#!/bin/bash -eu
+
+case "$1" in
+  -v|--version)
+    version="$2"
+esac
+
+mkdir -p ${OPENSHIFT_ACTIVEMQ_DIR}/template
+
+cp -r ${OPENSHIFT_ACTIVEMQ_DIR}/versions/${version}/apache-activemq ${OPENSHIFT_ACTIVEMQ_DIR}/apache-activemq
+
