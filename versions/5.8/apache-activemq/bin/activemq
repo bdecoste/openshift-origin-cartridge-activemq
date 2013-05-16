@@ -150,6 +150,13 @@ fi
 #JAVA_HOME=""
 JAVACMD="auto"
 
+if [ -z $JVM_HEAP_RATIO ]; then
+	JVM_HEAP_RATIO=0.5
+fi
+if [ -z $JVM_PERMGEN_RATIO ]; then
+	JVM_PERMGEN_RATIO=0.2
+fi
+
 max_memory_bytes=$(oo-cgroup-read memory.limit_in_bytes)
 if ! [[ "$max_memory_bytes" =~ ^[0-9]+$ ]] ; then
         max_memory_bytes=536870912
