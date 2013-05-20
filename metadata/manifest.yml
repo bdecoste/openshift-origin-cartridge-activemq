@@ -15,6 +15,7 @@ Categories:
   - apache
   - messaging
   - embedded
+  - database
 Website: http:/http://activemq.apache.org
 Help-Topics:
   "Developer Center": https://www.openshift.com/developers
