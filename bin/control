@@ -6,6 +6,7 @@ ACTIVEMQ_BIN_DIR=${OPENSHIFT_ACTIVEMQ_DIR}/bin
 ACTIVEMQ_PID_FILE=${OPENSHIFT_HOMEDIR}/app-root/runtime/activemq.pid
 
 cartridge_type="activemq"
+version=5.8
 
 # Check if the activemq process is running
 function isrunning() {
