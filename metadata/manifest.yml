@@ -59,31 +59,8 @@ Publishes:
     Type: "NET_TCP:httpd-proxy-info"
   publish-gear-endpoint:
     Type: "NET_TCP:gear-endpoint-info"
-  publish-jboss-cluster:
-    Type: "NET_TCP:activemq-cluster-info"
-  publish-jboss-remoting:
-    Type: "NET_TCP:activemq-remoting-info"
-Subscribes:
-  set-db-connection-info:
-    Type: "NET_TCP:db:connection-info"
-    Required: false
-    Required: false
-  set-mysql-connection-info:
-    Type: "NET_TCP:db:mysql"
-    Required : false
-  set-postgres-connection-info:
-    Type: "NET_TCP:db:postgres"
-    Required : false
-  set-nosql-db-connection-info:
-    Type: "NET_TCP:nosqldb:connection-info"
-    Required : false
-  set-doc-url:
-    Type: "STRING:urlpath"
-    Required : false
-  set-jboss-cluster:
-    Type: "NET_TCP:activemq-cluster-info"
-  set-jboss-remoting:
-    Type: "NET_TCP:activemq-remoting-info"
+  publish-generic-java:
+    Type: "NET_TCP:generic-java"
 Scaling:
   Min: 1
   Max: -1
