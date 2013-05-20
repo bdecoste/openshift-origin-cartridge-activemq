@@ -105,6 +105,14 @@ Endpoints:
       - Frontend:      "/health"
         Backend:       ""
         Options:       { health: true }
+  - Private-IP-Name:   IP
+    Private-Port-Name: AMQP_PORT
+    Private-Port:      4447
+    Public-Port-Name:  AMQP_PROXY_PORT
+  - Private-IP-Name:   IP
+    Private-Port-Name: OPENWIRE_PORT
+    Private-Port:      5445
+    Public-Port-Name:  OPENWIRE_PROXY_PORT
 Additional-Control-Actions:
     - threaddump
 Install-Build-Required: false
