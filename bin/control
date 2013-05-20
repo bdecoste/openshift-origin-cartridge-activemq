@@ -3,25 +3,9 @@
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
 ACTIVEMQ_BIN_DIR=${OPENSHIFT_ACTIVEMQ_DIR}/bin
-ACTIVEMQ_PID_FILE=${OPENSHIFT_HOMEDIR}/app-root/runtime/activemq.pid
 
 cartridge_type="activemq"
 version=5.8
-
-# Check if the activemq process is running
-function isrunning() {
-    
-    # Check for running app
-    if [ -f "$ACTIVEMQ_PID_FILE" ]; then
-      jbpid=$(cat $ACTIVEMQ_PID_FILE);
-      if /bin/ps --pid $jbpid 1>&2 >/dev/null;
-      then
-        return 0
-      fi
-    fi
-   
-    return 1
-}
 
 # Check if the server http port is up
 function ishttpup() {
@@ -186,22 +170,17 @@ function start() {
     pushd ${OPENSHIFT_ACTIVEMQ_DIR}/apache-activemq
     bin/activemq start > ${OPENSHIFT_TMP_DIR}/${cartridge_type}.log 2>&1 &
     PROCESS_ID=$!
-    echo "$PROCESS_ID" > ${ACTIVEMQ_PID_FILE}
     popd
   fi
 }
 
 
 function stop() {
-  echo "Stopping $cartridge_type cart"
+  	echo "Stopping $cartridge_type cart"
   
-  if isrunning; then
-		pushd ${OPENSHIFT_ACTIVEMQ_DIR}/apache-activemq
-    		bin/activemq stop > ${OPENSHIFT_TMP_DIR}/${cartridge_type}.log 2>&1 &
-    	popd
-  else 
-	    echo "Failed to locate JBOSS PID File" 1>&2
-  fi
+	pushd ${OPENSHIFT_ACTIVEMQ_DIR}/apache-activemq
+		bin/activemq stop > ${OPENSHIFT_TMP_DIR}/${cartridge_type}.log 2>&1 &
+	popd
 }
 
 function restart() {
