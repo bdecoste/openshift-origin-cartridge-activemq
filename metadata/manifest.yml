@@ -12,6 +12,7 @@ Source-Url: https://github.com/bdecoste/openshift-origin-cartridge-activemq.git
 Categories:
   - service
   - apache
+  - java
   - messaging
   - embedded
   - database
