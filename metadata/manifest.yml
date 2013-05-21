@@ -58,6 +58,10 @@ Publishes:
 Scaling:
   Min: 1
   Max: -1
+Group-Overrides:
+  - components:
+    - activemq-5.8
+    - web_proxy
 Endpoints:
   - Private-IP-Name:     IP
     Private-Port-Name:   HTTP_PORT
