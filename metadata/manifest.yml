@@ -11,11 +11,11 @@ Cartridge-Vendor: apache
 Source-Url: https://github.com/bdecoste/openshift-origin-cartridge-activemq.git
 Categories:
   - service
+  - database
+  - embedded
   - apache
   - java
   - messaging
-  - embedded
-  - database
 Website: http:/http://activemq.apache.org
 Help-Topics:
   "Developer Center": https://www.openshift.com/developers
