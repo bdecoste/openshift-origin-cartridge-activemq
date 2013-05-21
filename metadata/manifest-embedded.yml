@@ -12,7 +12,7 @@ Source-Url: https://github.com/bdecoste/openshift-origin-cartridge-activemq.git
 Categories:
   - service
   - database
-  - web_framework
+  - embedded
   - apache
   - java
   - messaging
@@ -50,10 +50,6 @@ Provides:
   - "activemq(version) = 5.8"
   - "activemq(version) >= 5.8"
 Publishes:
-  publish-http-url:
-    Type: "NET_TCP:httpd-proxy-info"
-  publish-gear-endpoint:
-    Type: "NET_TCP:gear-endpoint-info"
   publish-generic-java:
     Type: "ENV:NET_TCP:generic-java"
 Scaling:
