@@ -1,5 +1,0 @@
-metadata/
-env/
-env/OPENSHIFT_ACTIVEMQ_LOG_DIR
-env/OPENSHIFT_ACTIVEMQ_VERSION
-template/
