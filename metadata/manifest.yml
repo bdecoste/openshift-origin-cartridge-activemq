@@ -11,7 +11,8 @@ Cartridge-Vendor: apache
 Source-Url: https://github.com/bdecoste/openshift-origin-cartridge-activemq.git
 Categories:
   - service
-  - web_framework
+  - embedded
+  - database
   - apache
   - java
   - messaging
