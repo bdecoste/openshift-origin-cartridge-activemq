@@ -55,11 +55,7 @@ Publishes:
     Type: "ENV:NET_TCP:generic-java"
 Scaling:
   Min: 1
-  Max: -1
-Group-Overrides:
-  - components:
-    - activemq-5.8
-    - web_proxy
+  Max: 1
 Endpoints:
   - Private-IP-Name:     IP
     Private-Port-Name:   HTTP_PORT
