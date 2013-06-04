@@ -1,0 +1,79 @@
+Name: activemq
+Cartridge-Short-Name: ACTIVEMQ
+Display-Name: ActiveMQ
+Description: "Apache ActiveMQ is the most popular and powerful open source messaging and Integration Patterns server."
+Version: '5.8'
+License: Apache
+License-Url: http://www.apache.org/licenses/LICENSE-2.0.html
+Vendor: Red Hat
+Cartridge-Version: 0.0.1
+Cartridge-Vendor: apache
+Source-Url: https://github.com/bdecoste/openshift-origin-cartridge-activemq.git
+Categories:
+  - service
+  - database
+  - embedded
+Website: http://activemq.apache.org
+Help-Topics:
+  "Developer Center": https://www.openshift.com/developers
+Cart-Data:
+  - Key: OPENSHIFT_ACTIVEMQ_LOG_DIR
+    Type: environment
+    Description: "Directory to store application log files."
+  - Key: OPENSHIFT_TMP_DIR
+    Type: environment
+    Description: "Directory to store application temporary files."
+  - Key: OPENSHIFT_REPO_DIR
+    Type: environment
+    Description: "Application root directory where application files reside. This directory is reset every time you do a git-push"
+  - Key: OPENSHIFT_APP_DNS
+    Type: environment
+    Description: "Fully qualified domain name for the application."
+  - Key: OPENSHIFT_APP_NAME
+    Type: environment
+    Description: "Application name"
+  - Key: OPENSHIFT_DATA_DIR
+    Type: environment
+    Description: "Directory to store application data files. Preserved across git-pushes. Not shared across gears."
+  - Key: OPENSHIFT_APP_UUID
+    Type: environment
+    Description: "Unique ID which identified the application. Does not change between gears."
+  - Key: OPENSHIFT_GEAR_UUID
+    Type: environment
+    Description: "Unique ID which identified the gear. This value changes between gears."
+Provides:
+  - activemq-5.8
+  - "activemq"
+  - "activemq(version) = 5.8"
+  - "activemq(version) >= 5.8"
+Publishes:
+  publish-generic-java:
+    Type: "ENV:NET_TCP:generic-java"
+Scaling:
+  Min: 1
+  Max: 1
+Endpoints:
+  - Private-IP-Name:     IP
+    Private-Port-Name:   HTTP_PORT
+    Private-Port:        8080
+    Public-Port-Name:    HTTP_PROXY_PORT
+    WebSocket-Port-Name: WEBSOCKET_PORT
+    WebSocket-Port:      8676
+    Mappings:
+      - Frontend:      ""
+        Backend:       ""
+        Options:       { "websocket": 1}
+      - Frontend:      "/health"
+        Backend:       ""
+        Options:       { health: true }
+  - Private-IP-Name:   IP
+    Private-Port-Name: AMQP_PORT
+    Private-Port:      4447
+    Public-Port-Name:  AMQP_PROXY_PORT
+  - Private-IP-Name:   IP
+    Private-Port-Name: OPENWIRE_PORT
+    Private-Port:      5445
+    Public-Port-Name:  OPENWIRE_PROXY_PORT
+Additional-Control-Actions:
+    - threaddump
+Install-Build-Required: false
